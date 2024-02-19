@@ -1,0 +1,28 @@
+{
+    "fuse_pannel": [],
+    "sensor": {
+        "path": "/home/tssh/Documents/Repo/autoviewer/test_data/MeasFusIntf_i_SensorObject（1000）.csv",
+        "load": true
+    },
+    "track": {
+        "path": "/home/tssh/Documents/Repo/autoviewer/test_data/MeasFusIntf_o_TrackObject（1000）.csv",
+        "load": true
+    },
+    
+    "fts_targetchoosing": {
+        "fts_i_fusobject": {
+            "path": "/home/tssh/Documents/Repo/autoviewer/test_data/csv_202311221642_master_7d23737a/MeasFtsIntf_i_FusObjects.csv"
+        },
+        "fts_o_following_target": {
+            "path": "/home/tssh/Documents/Repo/autoviewer/test_data/csv_202311221642_master_7d23737a/MeasFtsIntf_o_FollowingTargets.csv"
+        },
+        "load": true
+    },
+    "camlane": {
+        "path": "/home/tssh/Documents/Repo/autoviewer/test_data/csv_202311221642_master_7d23737a/MeasLmdIntf_i_CamLane.csv",
+        "load": false
+    },
+    "i_egginfo": {
+        "path": "/home/tssh/Documents/Repo/autoviewer/test_data/csv_202311221642_master_7d23737a/MeasFusIntf_i_EgoInfo.csv"
+    }
+}
