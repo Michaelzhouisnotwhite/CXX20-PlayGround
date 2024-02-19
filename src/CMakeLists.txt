@@ -1,1 +1,1 @@
-add_subdirectory(test_come_features)
+add_subdirectory(test_some_features)

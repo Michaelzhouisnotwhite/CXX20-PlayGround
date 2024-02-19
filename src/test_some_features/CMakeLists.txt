@@ -39,11 +39,11 @@ function(one_file_one_project)
         # target_link_libraries(${sub_proj_name} PRIVATE opencv_core opencv_highgui opencv_imgcodecs)
         target_link_libraries(${sub_proj_name} PRIVATE clip)
 
-        if(WIN32)
-            add_custom_command(TARGET ${sub_proj_name} POST_BUILD
-                COMMAND ${CMAKE_COMMAND}
-                -DBINARY_DIR=${CMAKE_BINARY_DIR} -DDESTINATION="${EXECUTABLE_OUTPUT_PATH}" -P ${PROJECT_SOURCE_DIR}/CopyDLLS.cmake)
-        endif()
+        # if(WIN32)
+        #     add_custom_command(TARGET ${sub_proj_name} POST_BUILD
+        #         COMMAND ${CMAKE_COMMAND}
+        #         -DBINARY_DIR=${CMAKE_BINARY_DIR} -DDESTINATION="${EXECUTABLE_OUTPUT_PATH}" -P ${PROJECT_SOURCE_DIR}/CopyDLLS.cmake)
+        # endif()
 
         cmake_print_properties(
             TARGETS ${sub_proj_name}
