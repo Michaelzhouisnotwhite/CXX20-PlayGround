@@ -9,14 +9,43 @@
 #include <nlohmann/json.hpp>
 #include <ranges>
 #include "backward.hpp"
-int main(int args, char* argv[]) {
-    std::vector<int> v(100);
-    for (int i : std::views::iota(1, 10) | std::views::filter([](int i) {
-                     return i % 2 == 0;
-                 }) | std::views::transform([](int i) {
-                     return i + 1;
-                 })) {
-        fmt::println("{}", i);
+#include "boost/range.hpp"
+#include "boost/range/any_range.hpp"
+template <typename T>
+concept Hashable = requires(T t) {
+    { std::hash<T>{}(t) } -> std::convertible_to<std::size_t>;
+};
+template <typename T>
+concept Integer = std::is_integral_v<T>;
+template <Hashable T>
+void foo(T t) {
+    // ...
+}
+
+template <Integer T>
+void bar(T t) {
+    // ...
+}
+
+void enumerate_sth(std::ranges::range auto& any_range) {
+    for (const auto& val : any_range) {
+        (void)val;
     }
+}
+template <typename T>
+void boost_enumerate_sth(const boost::any_range<T(), boost::incrementable_traversal_tag>& ar) {
+    for (const auto& val : ar) {
+        (void)ar;
+    }
+}
+struct SomeType {};
+int main(int args, char* argv[]) {
+    foo(10);
+    SomeType st;
+    if (not false) {
+    }
+    std::set<int> some_set{1, 2, 3};
+    enumerate_sth(some_set);
+    // boost_enumerate_sth(some_set);
     return 0;
 }

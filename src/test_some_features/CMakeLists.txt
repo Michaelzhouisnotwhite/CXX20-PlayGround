@@ -1,6 +1,6 @@
 project(test_some_features)
 
-file(GLOB srcs CONFIGURE_DEPENDS *.cpp)
+aux_source_directory(. srcs)
 include(CMakePrintHelpers)
 
 # add_library(urlencode external/UrlEncoder/Encoder.cpp)
